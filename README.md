@@ -2,7 +2,7 @@
 
 ## 👨‍💻 Integrantes
 
-- Mishel Cumbal (Agrega aquí los demás integrantes del grupo si corresponde).
+- Mishel Cumbal 
 
 ---
 
