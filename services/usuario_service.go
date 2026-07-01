@@ -8,6 +8,10 @@ import (
 var Usuarios []models.Usuario
 
 func RegistrarUsuario() {
+
+	mu.Lock()
+	defer mu.Unlock()
+
 	var usuario models.Usuario
 
 	fmt.Println("=== REGISTRO DE USUARIO ===")
@@ -25,8 +29,11 @@ func RegistrarUsuario() {
 
 	fmt.Println("Usuario registrado")
 }
-
 func MostrarUsuarios() {
+
+	mu.Lock()
+	defer mu.Unlock()
+
 	fmt.Println("=== LISTA DE USUARIOS ===")
 
 	for _, usuario := range Usuarios {

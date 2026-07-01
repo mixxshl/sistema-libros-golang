@@ -8,6 +8,10 @@ import (
 var Libros []models.Libro
 
 func AgregarLibro() {
+
+	mu.Lock()
+	defer mu.Unlock()
+
 	var libro models.Libro
 
 	fmt.Println("=== REGISTRO DE LIBRO ===")
@@ -32,6 +36,10 @@ func AgregarLibro() {
 }
 
 func MostrarLibros() {
+
+	mu.Lock()
+	defer mu.Unlock()
+
 	fmt.Println("=== LISTA DE LIBROS ===")
 
 	for _, libro := range Libros {

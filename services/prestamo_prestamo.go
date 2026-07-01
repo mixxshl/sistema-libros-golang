@@ -3,11 +3,17 @@ package services
 import (
 	"fmt"
 	"sistema-libros/models"
+	"sync"
 )
 
+var mu sync.Mutex
 var Prestamos []models.Prestamo
 
 func RegistrarPrestamo() {
+
+	mu.Lock()
+	defer mu.Unlock()
+
 	var prestamo models.Prestamo
 
 	fmt.Println("=== REGISTRO DE PRESTAMO ===")
@@ -26,6 +32,10 @@ func RegistrarPrestamo() {
 }
 
 func MostrarPrestamos() {
+
+	mu.Lock()
+	defer mu.Unlock()
+
 	fmt.Println("=== LISTA DE PRESTAMOS ===")
 
 	for _, prestamo := range Prestamos {
